@@ -1,0 +1,33 @@
+from flask import Flask, render_template, request, redirect
+import sqlite3
+
+app = Flask(__name__)
+
+
+def get_db_connection():
+    conn = sqlite3.connect("database.db")
+    # sqlite3.Row allows to access the rows with field name
+    conn.row_factory = sqlite3.Row
+    # returns the database connection object
+    return conn
+
+
+@app.route("/", methods=["GET", "POST"])
+
+def index():
+    conn = get_db_connection()
+
+    if request.method == "POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        conn.execute('INSERT INTO users(name,email)VALUES(?,?)',(name,email))
+        # The ? placeholders help prevent SQL injection.
+        conn.commit()
+        return redirect('/')
+
+    users=conn.execute('SELECT * FROM users').fetchall()
+    conn.close()
+    return render_template('index.html',users=users)
+
+if __name__=='__main__':
+    app.run(debug=True)
