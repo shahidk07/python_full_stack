@@ -62,12 +62,12 @@ python_full_stack/
 ├── task1/
 │   ├── app.py              # Flask application & routes
 │   ├── database.db         # SQLite database
+│   ├── README.md           # Task documentation
 │   ├── static/
 │   │   └── style.css       # CSS styling
 │   └── templates/
 │       └── index.html      # HTML template
-├── .venv/                  # Virtual environment
-└── README.md               # This file
+└── .venv/                  # Virtual environment
 ```
 
 ## 🚀 Quick Start
