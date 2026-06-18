@@ -1,16 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
-<body>
-    <form class="login-form">
+<body class="login-body">
+    <form class="login-form" method="POST">
         <h1>Login</h1>
 
         <label for="username">Username:</label>
-        <input id="username" type="text">
+        <input id="username" name="username" type="text">
 
         <label for="password">Password:</label>
-        <input id="password" type="password">
+        <input id="password" name="password" type="password">
 
         <p class="register">
             New User?
@@ -20,3 +24,4 @@
         <button type="submit">SUBMIT</button>
     </form>
 </body>
+</html>

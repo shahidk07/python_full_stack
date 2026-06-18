@@ -1,0 +1,144 @@
+
+:root {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+/* Login & Register */
+
+.login-form,
+.register-form {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h1,
+.register-form h1 {
+    font-size: 2rem;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+p.register,
+p.login {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--text-muted);
+}
+
+p.register a,
+p.login a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p.register a:hover,
+p.login a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard */
+
+.dashboard {
+    width: 100%;
+    max-width: 440px;
+    background: var(--card);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.dashboard h2 {
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.dashboard p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+}
