@@ -30,15 +30,19 @@ def send_otp():
     otp = str(randint(100000, 999999))
     session["email"] = email
     session["otp"] = otp
-
+   
     # create email
     msg = EmailMessage()
     msg["Subject"] = "Password Reset OTP Testing"
     msg["From"] = "viperoflegendkiller@gmail.com"
     msg["To"] = email
+    html = render_template(
+    "email.html",
+    otp=otp
+)
 
     msg.set_content(f"your otp is {otp}")
-
+    msg.add_alternative(html, subtype="html")
     # send email
     #Secure Socket Layer
     #SSL is a tech that encrypts data sent between computers over a network
@@ -49,18 +53,22 @@ def send_otp():
     return redirect("/verify")
 
 @app.route("/verify",methods=["POST","GET"])
-
 def verify():
     if(request.method=="GET"):
+        print("GET request received",flush=True)
         return render_template("verify.html")
     
     else:
         entered_otp=request.form["otp"]
         sent_otp=session["otp"]
         if sent_otp==entered_otp:
+            print("OTP verified successfully",flush=True)
             return render_template("reset.html")
         else:
+            print("Invalid OTP",flush=True)
             return "<script>alert('Invalid OTP');window.location='/verify';</script>"
+        
+        
 @app.route("/reset",methods=["POST","GET"])
 
 def reset():
