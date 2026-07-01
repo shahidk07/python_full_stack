@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us</title>
 </head>
 <body>
-    
+    <form id="contactForm">
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="email" id="email" placeholder="Enter Email">
+    <textarea id="message" placeholder="Enter Message"></textarea>
+    <button type="submit">Submit</button>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit",function(event){
+            event.preventDefault()
+            let name=document.getElementById("name").value
+            let email=document.getElementById("email").value
+            let message=document.getElementById("message").value
+            
+            let submissions=JSON.parse(localStorage.getItem("contacts"))||[]
+            submissions.push({ name, email, message });
+            localStorage.setItem("contacts", JSON.stringify(submissions));
+        })
+    </script>
+</form>
 </body>
 </html>
